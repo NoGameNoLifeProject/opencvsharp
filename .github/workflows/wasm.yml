@@ -1,6 +1,7 @@
 name: Wasm
 
 on:
+  workflow_dispatch:
   pull_request:
     types: [synchronize, opened]
   push:
@@ -10,7 +11,7 @@ on:
 env:
   DEBIAN_FRONTEND: noninteractive
   OPENCV_VERSION: 4.11.0
-  EM_VERSION: 3.1.32
+  EM_VERSION: 3.1.56
   EM_CACHE_FOLDER: 'emsdk-cache'
 
 jobs:
@@ -151,9 +152,9 @@ jobs:
           echo TODO
 
       - name: Install .NET
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v5
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: '9.0.x'
 
       - name: Create NuGet package
         env: 
